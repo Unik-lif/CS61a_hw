@@ -89,3 +89,13 @@ debug test:
 1
 3
 ```
+
+### Q6:
+```
+10
+foo
+1
+29
+29
+mashed potatoes
+'mashed potatoes'
