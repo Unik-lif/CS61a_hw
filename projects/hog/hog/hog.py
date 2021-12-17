@@ -369,6 +369,8 @@ def final_strategy(score, opponent_score):
 
     If I am the lead, i can take fewer risks. Else I would go wild.
 
+    because of the network unstability (got response error) and lack interest in the game (I still got a lot of work to do), I don't pay attention to this part.
+    So referencing the code here is meaningless.
     """
     # BEGIN PROBLEM 12
     # go wild to set your lead.
