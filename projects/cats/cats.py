@@ -218,25 +218,23 @@ def minimum_mewtations(start, goal, limit):
     >>> minimum_mewtations("ckiteus", "kittens", big_limit) # ckiteus -> kiteus -> kitteus -> kittens
     3
     """
-    assert False, 'Remove this line'
 
-    if ______________:  # Fill in the condition
-        # BEGIN
-        "*** YOUR CODE HERE ***"
-        # END
-
-    elif ___________:  # Feel free to remove or add additional cases
-        # BEGIN
-        "*** YOUR CODE HERE ***"
-        # END
-
+    if start == goal:
+        return 0
+    elif start == '' and len(goal):
+        return len(goal)
+    elif goal == '' and len(start):
+        return len(start)
+    elif limit == -1:
+        return limit + 1
+    elif start[0] == goal[0]:
+        return minimum_mewtations(start[1:], goal[1:], limit)
     else:
-        add = ...  # Fill in these lines
-        remove = ...
-        substitute = ...
-        # BEGIN
-        "*** YOUR CODE HERE ***"
-        # END
+        add = minimum_mewtations(start, goal[1:], limit - 1) + 1
+        remove = minimum_mewtations(start[1:], goal, limit - 1) + 1
+        substitute = minimum_mewtations(start[1:], goal[1:], limit - 1) + 1
+        return min(add, remove, substitute)
+
 
 
 def final_diff(start, goal, limit):
@@ -276,9 +274,16 @@ def report_progress(sofar, prompt, user_id, upload):
     ID: 3 Progress: 0.2
     0.2
     """
-    # BEGIN PROBLEM 8
-    "*** YOUR CODE HERE ***"
-    # END PROBLEM 8
+    count = 0
+    for i in range(len(sofar)):
+        if i > len(prompt):
+            break
+        elif sofar[i] == prompt[i]:
+            count += 1
+        elif sofar[i] != prompt[i]:
+            break
+    upload({'id': user_id, 'progress': count / len(prompt)})
+    return count / len(prompt)
 
 
 def time_per_word(words, times_per_player):
@@ -299,7 +304,13 @@ def time_per_word(words, times_per_player):
     [[6, 3, 6, 2], [10, 6, 1, 2]]
     """
     # BEGIN PROBLEM 9
-    "*** YOUR CODE HERE ***"
+    times_total = []
+    for i in range(len(times_per_player)):
+        every_player = []
+        for j in range(len(times_per_player[i]) - 1):
+            every_player.append(times_per_player[i][j + 1] - times_per_player[i][j])
+        times_total.append(every_player)
+    return match(words, times_total)
     # END PROBLEM 9
 
 
@@ -318,10 +329,17 @@ def fastest_words(match):
     >>> p1
     [4, 1, 6]
     """
-    player_indices = range(len(get_times(match)))  # contains an *index* for each player
-    word_indices = range(len(get_words(match)))    # contains an *index* for each word
+    player_indices = get_times(match)  # contains an *index* for each player
+    word_indices = get_words(match)    # contains an *index* for each word
     # BEGIN PROBLEM 10
-    "*** YOUR CODE HERE ***"
+    result = []
+    
+    for _ in range(len(player_indices)):
+        result.append([])
+    for j in range(len(player_indices[0])):
+        pos = player_indices.index(min(player_indices, key=lambda player_indice: player_indice[j]))
+        result[pos].append(word_indices[j])
+    return result
     # END PROBLEM 10
 
 

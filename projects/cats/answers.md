@@ -53,4 +53,28 @@ p6:
 True
 True
 False
+
+p7:
+2
+2
+3
+
+p8:
+ID: 1 Progress: 0.6
+ID: 1 Progress: 0.6
+0.6
+ID: 2 Progress: 0.2
+ID: 3 Progress: 0.2
+
+p9:
+['This', 'is', 'fun']
+[[3, 2, 1], [4, 2, 3]]
+'world'
+[[2, 1], [2, 3]]
+1
+
+p10:
+[['What'], ['great', 'luck']]
+[['What', 'luck'], ['great]]
+[['What'], ['great'], ['luck']]
 ```
