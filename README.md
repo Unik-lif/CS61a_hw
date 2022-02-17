@@ -1,5 +1,5 @@
 # CS61a_hw
-my own work based on CS61a courese.
+my own work based on CS61a coures.
 
 Thanks for sharing the video and materials online from which I've learned a lot.
 
